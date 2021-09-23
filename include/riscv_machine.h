@@ -48,7 +48,7 @@
 #include "LiveCacheCore.h"
 #endif
 
-#define MAX_CPUS 8
+#define MAX_CPUS 32
 
 /* Hooks */
 typedef struct RISCVMachineHooks {
