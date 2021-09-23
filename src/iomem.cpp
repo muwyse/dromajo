@@ -63,6 +63,20 @@ PhysMemoryMap *phys_mem_map_init(void) {
     return s;
 }
 
+void phys_mem_map_print(PhysMemoryMap *s) {
+    fprintf(dromajo_stderr, "PhysMemoryMap:\n");
+    for (int i = 0; i < s->n_phys_mem_range; i++) {
+        PhysMemoryRange *pr = &s->phys_mem_range[i];
+        phys_mem_range_print(pr);
+    }
+}
+
+void phys_mem_range_print(PhysMemoryRange *pr) {
+    fprintf(dromajo_stderr, "PhysMemoryRange:\n");
+    fprintf(dromajo_stderr, "addr: %lx\n", pr->addr);
+    fprintf(dromajo_stderr, "size: %" PRIu64 "\n", pr->size);
+}
+
 void phys_mem_map_end(PhysMemoryMap *s) {
     for (int i = 0; i < s->n_phys_mem_range; i++) {
         PhysMemoryRange *pr = &s->phys_mem_range[i];

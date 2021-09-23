@@ -94,6 +94,8 @@ struct PhysMemoryMap {
 };
 
 PhysMemoryMap *                phys_mem_map_init(void);
+void                           phys_mem_map_print(PhysMemoryMap*);
+void                           phys_mem_range_print(PhysMemoryRange*);
 void                           phys_mem_map_end(PhysMemoryMap *s);
 PhysMemoryRange *              register_ram_entry(PhysMemoryMap *s, uint64_t addr, uint64_t size, int devram_flags);
 static inline PhysMemoryRange *cpu_register_ram(PhysMemoryMap *s, uint64_t addr, uint64_t size, int devram_flags) {

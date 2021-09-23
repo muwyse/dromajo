@@ -1021,6 +1021,7 @@ static int copy_kernel(RISCVMachine *s, const uint8_t *fw_buf, size_t fw_buf_len
             fdt_off += 256;
 
         uint8_t *ram_ptr = get_ram_ptr(s, ROM_BASE_ADDR);
+        phys_mem_map_print(s->mem_map);
         if (riscv_build_fdt(s, ram_ptr + fdt_off, dtb_name, cmd_line, initrd_start, initrd_end) < 0)
             return -1;
     }
